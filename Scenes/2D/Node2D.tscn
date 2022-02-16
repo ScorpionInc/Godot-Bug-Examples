@@ -1,3 +1,17 @@
-[gd_scene format=2]
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scripts/3DIn2DManager.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/3D/Spatial.tscn" type="PackedScene" id=2]
 
 [node name="Node2D" type="Node2D"]
+
+[node name="Manager" type="Node2D" parent="."]
+script = ExtResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="Manager"]
+
+[node name="Viewport" type="Viewport" parent="Manager"]
+size = Vector2( 1024, 600 )
+transparent_bg = true
+
+[node name="Spatial" parent="Manager/Viewport" instance=ExtResource( 2 )]
